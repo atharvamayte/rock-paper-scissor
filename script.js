@@ -6,7 +6,7 @@ function getComputerChoice() {
 
 //user choice
 function getHumanChoice() {
-    let choice = prompt("Please input your move");
+    let choice = prompt("Please input your move: Rock, Paper or Scissors");
     return choice;
 }
 
