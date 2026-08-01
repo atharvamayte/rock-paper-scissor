@@ -10,12 +10,12 @@ function getHumanChoice() {
     return choice;
 }
 
-let humanScore = 0;
+let playerScore = 0;
 let computerScore = 0;
 
 //game logic
 function playRound (humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowerCase();
+    // humanChoice = humanChoice.toLowerCase();
     
     //losing
     if (humanChoice === "rock" && computerChoice === "paper") {
@@ -32,15 +32,15 @@ function playRound (humanChoice, computerChoice) {
     }
     //winning
     else if (humanChoice === "rock" && computerChoice === "scissors") {
-        humanScore++;
+        playerScore++;
         return "Computer played scissors. You Win! Rock breaks scissors.";
     }
     else if (humanChoice === "paper" && computerChoice === "rock") {
-        humanScore++;
+        playerScore++;
         return "Computer played rock. You Win! Paper Beats rock.";
     }
     else if (humanChoice === "scissors" && computerChoice === "paper") {
-        humanScore++;
+        playerScore++;
         return "Computer played paper. You Win! Scissors tears paper.";
     }
     //draw
@@ -56,33 +56,81 @@ function playRound (humanChoice, computerChoice) {
 }
 
 //playgame
+let rockButton = document.querySelector("#rock-option");
+let paperButton = document.querySelector("#paper-option");
+let scissorsButton = document.querySelector("#scissors-option");
+let roundStatus = document.querySelector("#round-status")
+let playerScoreDisplay = document.querySelector("#playerScoreDisplay");
+let computerScoreDisplay = document.querySelector("#computerScoreDisplay");
+let buttonsContainer = document.querySelector(".buttons");
+let gameResult = document.querySelector("#resultMsg")
+//on clicking buttons
+rockButton.addEventListener("click", () => {
+    roundStatus.textContent = playRound("rock", getComputerChoice());
+    playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+    computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+
+    if (playerScore === 5) {
+        roundStatus.textContent = "Refresh to play again.";
+        buttonsContainer.style.display ="none";
+        gameResult.textContent = "You Win!";
+    }
+    else if (computerScore === 5) {
+        roundStatus.textContent =  "Refresh to play again.";
+        buttonsContainer.style.display ="none";
+        gameResult.textContent = "You Lose!"
+    }
+})
+paperButton.addEventListener("click", () => {
+    roundStatus.textContent = playRound("paper", getComputerChoice())
+    playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+    computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+
+    if (playerScore === 5) {
+        roundStatus.textContent = "Refresh to play again.";
+        buttonsContainer.style.display ="none";
+        gameResult.textContent = "You Win!"
+    }
+    else if (computerScore === 5) {
+        roundStatus.textContent =  "Refresh to play again.";
+        buttonsContainer.style.display ="none";
+        gameResult.textContent = "You Lose!";
+    }
+})
+scissorsButton.addEventListener("click", () => {
+    roundStatus.textContent = playRound("scissors", getComputerChoice())
+    playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+    computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+
+    if (playerScore === 5) {
+        roundStatus.textContent = "Refresh to play again.";
+        buttonsContainer.style.display ="none";
+        gameResult.textContent = "You Win!";
+    }
+    else if (computerScore === 5) {
+        roundStatus.textContent =  "Refresh to play again.";
+        buttonsContainer.style.display ="none";
+        gameResult.textContent = "You Lose!";
+    }
+})
+    
 function playGame() {
-    let human = getHumanChoice();
-    let computer = getComputerChoice();
-    console.log(playRound(human, computer));
-    human = getHumanChoice();
-    computer = getComputerChoice();
-    console.log(playRound(human, computer));
-    human = getHumanChoice();
-    computer = getComputerChoice();
-    console.log(playRound(human, computer));
-    human = getHumanChoice();
-    computer = getComputerChoice();
-    console.log(playRound(human, computer));
-    human = getHumanChoice();
-    computer = getComputerChoice();
-    console.log(playRound(human, computer));
-
-    if (humanScore === computerScore) {
-        return "Draw!!";
-    }
-    else if (humanScore < computerScore) {
-        return "You Lose!!";
-    }
-    else if (humanScore > computerScore) {
-        return "You Win!! GG";
-    }
+    // let human = getHumanChoice();
+    // let computer = getComputerChoice();
+    // console.log(playRound(human, computer));
+    // human = getHumanChoice();
+    // computer = getComputerChoice();
+    // console.log(playRound(human, computer));
+    // human = getHumanChoice();
+    // computer = getComputerChoice();
+    // console.log(playRound(human, computer));
+    // human = getHumanChoice();
+    // computer = getComputerChoice();
+    // console.log(playRound(human, computer));
+    // human = getHumanChoice();
+    // computer = getComputerChoice();
+    // console.log(playRound(human, computer));
     }
 
-console.log(playGame());
+// console.log(playGame());
 

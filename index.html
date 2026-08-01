@@ -4,12 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPS</title>
-    <script src="script.js"></script>
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <p>To see the game and the results, open the console.</p>
-    <p>UI would be updated in a future version. Till then, have fun :D</p>
+    <h1>RPS Arena</h1>
+    <p>Choose your option!</p>
+    <div class="buttons">
+    <button class="button" id="rock-option">Rock</button>
+    <button class="button" id="paper-option">Paper</button>
+    <button class="button" id="scissors-option">Scissors</button>
+    </div>
+        <p id="resultMsg"></p>
+    <div class="scoresDisplay">
+    <p id="playerScoreDisplay">Player Score: 0</p> <p id="computerScoreDisplay">Computer Score: 0</p>
+    </div>
+    <p id="round-status"></p>
+    <script src="script.js"></script>
 </body>
 </html>
