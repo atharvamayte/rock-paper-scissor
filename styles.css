@@ -34,16 +34,24 @@ p {
 }
 .button {
     padding:20px 30px;
-    background-color: yellow;
+    background-color: #d4af0b;
     font-size: 15px;
-    
 
+}
+.button:hover {
+    background-color: #ffa500;
+    transform: scale(1.05); 
+}
+.button:active {
+    background-color: lime;
 }
 .scoresDisplay {
     display: flex;
     gap: 40px;
     justify-content: center;
-    
+    border: 2px solid black;
+    width: 400px;
+    margin: 0 auto;
 }
 
 #resultMsg {
